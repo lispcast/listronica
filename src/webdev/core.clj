@@ -18,11 +18,17 @@
    :body "My name is Eric Normand and I created this site! Isn't it lovely?"
    :headers {}})
 
+(defn request [req]
+  {:status 200
+   :body (pr-str req)
+   :headers {}})
+
 (defroutes app
   (GET "/" [] greet)
   (GET "/goodbye" [] goodbye)
 
   (GET "/about" [] about)
+  (GET "/request" [] request)
   (not-found "Page not found."))
 
 (defn -main [port]
