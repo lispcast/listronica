@@ -19,9 +19,16 @@
    :body "My name is Eric Normand and I created this site! Isn't it lovely?"
    :headers {}})
 
+(defn yo [req]
+  (let [name (get-in req [:route-params :name])]
+    {:status 200
+     :body (str "Yo! " name "!")
+     :headers {}}))
+
 (defroutes app
   (GET "/" [] greet)
   (GET "/goodbye" [] goodbye)
+  (GET "/yo/:name" [] yo)
 
   (GET "/about" [] about)
   (GET "/request" [] handle-dump)
