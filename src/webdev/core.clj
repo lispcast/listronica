@@ -13,9 +13,16 @@
    :body "Goodbye, Cruel World!"
    :headers {}})
 
+(defn about [req]
+  {:status 200
+   :body "My name is Eric Normand and I created this site! Isn't it lovely?"
+   :headers {}})
+
 (defroutes app
   (GET "/" [] greet)
   (GET "/goodbye" [] goodbye)
+
+  (GET "/about" [] about)
   (not-found "Page not found."))
 
 (defn -main [port]
