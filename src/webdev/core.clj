@@ -4,7 +4,7 @@
 (defn greet [req]
   (if (= "/" (:uri req))
     {:status 200
-     :body "Hello, World!"
+     :body "Hello, World! Now with no reload!"
      :headers {}}
     {:status 404
      :body "Page not found."
