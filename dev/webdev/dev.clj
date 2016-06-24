@@ -4,4 +4,4 @@
             [webdev.core :as core]))
 
 (defn -main [port]
-  (jetty/run-jetty (wrap-reload #'core/greet) {:port (Integer. port)}))
+  (jetty/run-jetty (wrap-reload #'core/app) {:port (Integer. port)}))

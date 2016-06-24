@@ -1,23 +1,19 @@
 (ns webdev.core
-  (:require [ring.adapter.jetty :as jetty]))
+  (:require [ring.adapter.jetty :as jetty]
+            [compojure.core :refer [defroutes GET]]
+            [compojure.route :refer [not-found]]))
 
 (defn greet [req]
-  (cond
-    (= "/" (:uri req))
-    {:status 200
-     :body "Hello, World! Now with no reload!"
-     :headers {}}
-    (= "/goodbye" (:uri req))
-    {:status 200
-     :body "Goodbye, Cruel World!"
-     :headers {}}
-    :else
-    {:status 404
-     :body "Page not found."
-     :headers {}}))
+  {:status 200
+   :body "Hello, World!"
+   :headers {}})
+
+(defroutes app
+  (GET "/" [] greet)
+  (not-found "Page not found."))
 
 (defn -main [port]
-  (jetty/run-jetty greet {:port (Integer. port)}))
+  (jetty/run-jetty app {:port (Integer. port)}))
 
-;; -dev-main has moved so dev/webdev/dev.clj
+;; -dev-main has moved to dev/webdev/dev.clj
 ;; please see the note at https://purelyfunctional.tv/web-dev-in-clojure/lets-get-a-server-up-and-running-in-the-cloud/#dev-main
