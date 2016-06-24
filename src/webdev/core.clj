@@ -1,7 +1,8 @@
 (ns webdev.core
   (:require [ring.adapter.jetty :as jetty]
             [compojure.core :refer [defroutes GET]]
-            [compojure.route :refer [not-found]]))
+            [compojure.route :refer [not-found]]
+            [ring.handler.dump :refer [handle-dump]]))
 
 (defn greet [req]
   {:status 200
@@ -18,17 +19,12 @@
    :body "My name is Eric Normand and I created this site! Isn't it lovely?"
    :headers {}})
 
-(defn request [req]
-  {:status 200
-   :body (pr-str req)
-   :headers {}})
-
 (defroutes app
   (GET "/" [] greet)
   (GET "/goodbye" [] goodbye)
 
   (GET "/about" [] about)
-  (GET "/request" [] request)
+  (GET "/request" [] handle-dump)
   (not-found "Page not found."))
 
 (defn -main [port]
