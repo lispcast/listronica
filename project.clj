@@ -9,4 +9,5 @@
   :main webdev.core
 
   :profiles {:dev
-             {:main webdev.core/-dev-main}})
+             {:source-paths ["src" "dev"]
+              :main webdev.dev}})

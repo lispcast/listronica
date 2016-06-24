@@ -1,6 +1,5 @@
 (ns webdev.core
-  (:require [ring.adapter.jetty :as jetty]
-            [ring.middleware.reload :refer [wrap-reload]]))
+  (:require [ring.adapter.jetty :as jetty]))
 
 (defn greet [req]
   (if (= "/" (:uri req))
@@ -12,7 +11,7 @@
      :headers {}}))
 
 (defn -main [port]
-  (jetty/run-jetty greet                 {:port (Integer. port)}))
+  (jetty/run-jetty greet {:port (Integer. port)}))
 
-(defn -dev-main [port]
-  (jetty/run-jetty (wrap-reload #'greet) {:port (Integer. port)}))
+;; -dev-main has moved so dev/webdev/dev.clj
+;; please see the note at https://purelyfunctional.tv/web-dev-in-clojure/lets-get-a-server-up-and-running-in-the-cloud/#dev-main
