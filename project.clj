@@ -6,4 +6,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring "1.5.0"]]
 
-  :main webdev.core)
+  :main webdev.core
+
+  :profiles {:dev
+             {:main webdev.core/-dev-main}})
