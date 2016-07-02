@@ -5,7 +5,8 @@
             :url "http://creativecommons.org/publicdomain/zero/1.0/"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring "1.5.0"]
-                 [compojure "1.5.1"]]
+                 [compojure "1.5.1"]
+                 [org.clojure/java.jdbc "0.6.1"]]
 
   :min-lein-version "2.0.0"
 
