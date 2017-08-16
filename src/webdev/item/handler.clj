@@ -2,22 +2,15 @@
   (:require [webdev.item.model :refer [create-item
                                        read-items
                                        update-item
-                                       delete-item]]))
+                                       delete-item]]
+            [webdev.item.view :refer [items-page]]))
 
 (defn handle-index-items [req]
   (let [db (:webdev/db req)
         items (read-items db)]
     {:status 200
      :headers {}
-     :body (str "<html><head></head><body><div>"
-                (mapv :name items)
-                "</div>"
-                "<form method=\"POST\" action=\"/items\">"
-                "<input type=\"text\" name=\"name\" placeholder=\"name\">"
-                "<input type=\"text\" name=\"description\" placeholder=\"description\">"
-                "<input type=\"submit\">"
-                "</form>"
-                "</body></html>")}))
+     :body (items-page items)}))
 
 (defn handle-create-item [req]
   (let [name (get-in req [:params "name"])
