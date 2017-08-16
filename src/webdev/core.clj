@@ -56,7 +56,7 @@
   (GET "/calc/:a/:op/:b" [] calc)
 
   (GET "/about" [] about)
-  (GET "/request" [] handle-dump)
+  (ANY "/request" [] handle-dump)
 
 
   (GET "/items" [] handle-index-items)

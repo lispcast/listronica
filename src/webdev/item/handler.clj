@@ -11,4 +11,10 @@
      :headers {}
      :body (str "<html><head></head><body><div>"
                 (mapv :name items)
-                "</div></body></html>")}))
+                "</div>"
+                "<form method=\"POST\" action=\"request\">"
+                "<input type=\"text\" name=\"name\" placeholder=\"name\">"
+                "<input type=\"text\" name=\"description\" placeholder=\"description\">"
+                "<input type=\"submit\">"
+                "</form>"
+                "</body></html>")}))
