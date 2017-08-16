@@ -50,7 +50,7 @@
                    [:td (h (:name i))]
                    [:td (h (:description i))]])]]
               [:div.col-sm-offset-1 "There are no items."])
-            [:div
+            [:div.col-sm-6
              [:h2 "Create a new item"]
              (new-item)]]]
           [:script {:src "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}]
