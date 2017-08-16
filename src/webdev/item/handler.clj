@@ -12,7 +12,7 @@
      :body (str "<html><head></head><body><div>"
                 (mapv :name items)
                 "</div>"
-                "<form method=\"POST\" action=\"request\">"
+                "<form method=\"POST\" action=\"/request\">"
                 "<input type=\"text\" name=\"name\" placeholder=\"name\">"
                 "<input type=\"text\" name=\"description\" placeholder=\"description\">"
                 "<input type=\"submit\">"
