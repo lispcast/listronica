@@ -7,7 +7,8 @@
                  [ring "1.5.0"]
                  [compojure "1.5.1"]
                  [org.clojure/java.jdbc "0.6.1"]
-                 [org.postgresql/postgresql "9.4.1208.jre7"]]
+                 [org.postgresql/postgresql "9.4.1208.jre7"]
+                 [hiccup "1.0.5"]]
 
   :min-lein-version "2.0.0"
 
