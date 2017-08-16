@@ -58,9 +58,14 @@
   (GET "/request" [] handle-dump)
   (not-found "Page not found."))
 
+(defn wrap-db [hdlr]
+  (fn [req]
+    (hdlr (assoc req :webdev/db db))))
+
 (def app
-  (wrap-params
-   routes))
+  (wrap-db
+   (wrap-params
+    routes)))
 
 (defn -main [port]
   (items/create-table db)
