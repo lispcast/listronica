@@ -12,7 +12,9 @@
             [compojure.route :refer [not-found]]
             [ring.handler.dump :refer [handle-dump]]))
 
-(def db "jdbc:postgresql://localhost/webdev")
+(def db (or
+         (System/getenv "DATABASE_URL")
+         "jdbc:postgresql://localhost/webdev"))
 
 (defn greet [req]
   {:status 200
