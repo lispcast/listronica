@@ -1,6 +1,7 @@
 (ns webdev.core
   (:require [webdev.item.model :as items]
-            [webdev.item.handler :refer [handle-index-items]])
+            [webdev.item.handler :refer [handle-index-items
+                                         handle-create-item]])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.params :refer [wrap-params]]
             [compojure.core :refer [defroutes ANY GET POST PUT DELETE]]
@@ -60,7 +61,7 @@
 
 
   (GET "/items" [] handle-index-items)
-
+  (POST "/items" [] handle-create-item)
   
   (not-found "Page not found."))
 
