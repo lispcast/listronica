@@ -2,6 +2,30 @@
   (:require [hiccup.page :refer [html5]]
             [hiccup.core :refer [html h]]))
 
+(defn new-item []
+  (html
+   [:form.form-horizontal
+    {:method "POST" :action "/items"}
+    [:div.form-group
+     [:label.control-label.col-sm-2 {:for :name-input}
+      "Name"]
+     [:div.col-sm-10
+      [:input#name-input.form-control
+       {:name :name
+        :placeholder "Name"}]]]
+    [:div.form-group
+     [:label.control-label.col-sm-2 {:for :desc-input}
+      "Description"]
+     [:div.col-sm-10
+      [:input#desc-input.form-control
+       {:name :description
+        :placeholder "Description"}]]]
+    [:div.form-group
+     [:div.col-sm-offset-2.col-sm-10
+      [:input.btn.btn-primary
+       {:type :submit
+        :value "New item"}]]]]))
+
 (defn items-page [items]
   (html5 {:lang :en}
          [:head
@@ -25,6 +49,9 @@
                   [:tr
                    [:td (h (:name i))]
                    [:td (h (:description i))]])]]
-              [:div.col-sm-offset-1 "There are no items."])]]
+              [:div.col-sm-offset-1 "There are no items."])
+            [:div
+             [:h2 "Create a new item"]
+             (new-item)]]]
           [:script {:src "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}]
           [:script {:src "/bootstrap/js/bootstrap.min.js"}]]))
