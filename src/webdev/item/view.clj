@@ -12,8 +12,8 @@
                   :rel :stylesheet}]]
          [:body
           [:div.container
-           [:h1 "My Items"]
            [:div.row
+            [:h1 "My Items"]
             (if (seq items)
               [:table.table.table-striped
                [:thead
