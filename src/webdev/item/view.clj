@@ -78,7 +78,7 @@
                   [:tr
                    [:td (delete-item-form (:id i))]
                    [:td (update-item-form (:id i) (:checked i))]
-                   [:td (:id i) " " (h (:name i))]
+                   [:td (h (:name i))]
                    [:td (h (:description i))]])]]
               [:div.col-sm-offset-1 "There are no items."])
             [:div.col-sm-6
