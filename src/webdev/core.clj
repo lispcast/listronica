@@ -1,5 +1,6 @@
 (ns webdev.core
-  (:require [webdev.item.model :as items])
+  (:require [webdev.item.model :as items]
+            [webdev.item.handler :refer [handle-index-items]])
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.params :refer [wrap-params]]
             [compojure.core :refer [defroutes ANY GET POST PUT DELETE]]
@@ -56,6 +57,11 @@
 
   (GET "/about" [] about)
   (GET "/request" [] handle-dump)
+
+
+  (GET "/items" [] handle-index-items)
+
+  
   (not-found "Page not found."))
 
 (defn wrap-db [hdlr]
