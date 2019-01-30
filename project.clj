@@ -3,8 +3,8 @@
   :url "https://purelyfunctional.tv/web-dev-in-clojure"
   :license {:name "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
             :url "http://creativecommons.org/publicdomain/zero/1.0/"}
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [ring "1.5.0"]
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [ring "1.7.1"]
                  [compojure "1.5.1"]
                  [org.clojure/java.jdbc "0.6.1"]
                  [org.postgresql/postgresql "9.4.1208.jre7"]
